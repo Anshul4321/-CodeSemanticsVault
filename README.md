@@ -137,6 +137,85 @@ cd ..
 cp .env.example .env
 # Add your OpenAI API key to .env
 ```
+## 📸 Screenshots
+
+### 1. Initial Interface
+![CodeSemanticsVault Home](./screenshots/1-home.png)
+
+The clean, dark-mode interface ready to index your first repository. Enter any GitHub URL and click **Index Repository** to begin.
+
+**Features shown:**
+- Beautiful gradient header (blue to teal)
+- Dark mode toggle (☀️/🌙) in top-right
+- Example placeholder showing the format
+- Responsive input field with focus states
+
+---
+
+### 2. Repository Indexed Successfully
+![Repository Indexed](./screenshots/2-indexed.png)
+
+After indexing completes, the system shows:
+- ✅ **Repository Indexed** status
+- **Files Indexed**: 2 files extracted and processed
+- **Code Chunks**: 2 semantic chunks created from the code
+- **New Repo button**: Switch to index a different repository without refreshing
+- Green success banner with pulsing indicator
+- **Query section** now available below
+
+**What happens during indexing:**
+- Repository cloned from GitHub
+- Code files extracted and filtered by language
+- Intelligent chunking respects function/class boundaries
+- Each chunk converted to 384-dimensional semantic vector
+- Vectors stored persistently in ChromaDB
+
+---
+
+### 3. AI-Generated Answer with Citations
+![Answer with Confidence](./screenshots/3-answer.png)
+
+The system answers your question with:
+- **Natural language answer** synthesized by GPT-4
+- **Detailed explanation** of the project approach
+- **Code references** with line numbers (e.g., "app.py, lines 11-33")
+- **Confidence Score**: 61% (green indicates reasonable confidence)
+- **Retrieved Chunks**: 2 code snippets used to generate the answer
+
+**What you see in the answer:**
+1. Clear explanation of how the project works
+2. Step-by-step breakdown of the approach
+3. Specific file references you can verify
+4. Confidence metric (0-100%) showing answer reliability
+5. Number of code chunks retrieved from the codebase
+
+**How it works:**
+1. Your question is embedded to 384 dimensions
+2. Semantic search finds most relevant code chunks
+3. GPT-4 synthesizes answer using retrieved context
+4. Confidence scored based on retrieval quality
+5. Citations point to exact source locations
+
+---
+
+## 🎨 User Experience Highlights
+
+### Dark Mode
+Toggle between dark and light themes with the ☀️/🌙 button. Smooth transitions and consistent color palette across all screens.
+
+### Real-time Feedback
+- Loading states during indexing ("Indexing...")
+- Success indicators (✓ Repository Indexed)
+- Error messages with actionable guidance
+- Pulsing success dot animation
+
+### Responsive Design
+Works on desktop, tablet, and mobile. Gradient buttons, dark backgrounds, and intuitive layout scale beautifully.
+
+### One-Click Repository Switching
+The **"New Repo"** button lets you index a different repository instantly without page refresh or losing the UI state.
+
+---
 
 ### Run Backend
 
